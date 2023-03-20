@@ -8,7 +8,8 @@ use Mix.Config
 # with webpack to recompile .js and .css sources.
 config :samly_howto, SamlyHowtoWeb.Endpoint,
   https: [
-    port: 4443,
+    port: 443,
+#    port: 4443,
     cipher_suite: :strong,
     certfile: "priv/cert/samly_howto.pem",
     keyfile: "priv/cert/samly_howto_key.pem"
@@ -63,6 +64,18 @@ config :samly_howto, SamlyHowtoWeb.Endpoint,
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
+
+config :logger,
+  backends: [
+    {LoggerFileBackend, :dev}
+  ]
+
+config :logger, :dev,
+  path: "prod.log",
+  level: :debug,
+  format: "[$level] $message\n",
+  truncate: :infinity
+
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.

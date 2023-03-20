@@ -51,7 +51,9 @@ defmodule SamlyHowto.Mixfile do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:jason, "~> 1.1"},
       {:gettext, "~> 0.11"},
-      {:samly, "~> 1.3.0"}
+#      {:samly, "~> 1.3.0"},
+      {:samly, "~> 1.3.0", git: "https://github.com/artis-co-ltd/samly.git"},
+      {:logger_file_backend, "~> 0.0.11"},
     ]
   end
 end
